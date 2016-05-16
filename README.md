@@ -1,3 +1,3 @@
 # RussiaBlocks
 
-just for fun ! Let's make some intertesing games.
+Design in 64bit Qt.Just Demo, Have fun ^-^
