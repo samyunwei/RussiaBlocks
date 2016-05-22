@@ -22,7 +22,9 @@ SOURCES += main.cpp\
     OBlock.cpp \
     SBlock.cpp \
     IBlock.cpp \
-    RLBlock.cpp
+    RLBlock.cpp \
+    ranking/GameRankingList.cpp \
+    ranking/GameRankingItem.cpp
 
 HEADERS  += GameWindow.h \
     FatherBlock.h \
@@ -35,7 +37,9 @@ HEADERS  += GameWindow.h \
     OBlock.h \
     SBlock.h \
     IBlock.h \
-    RLBlock.h
+    RLBlock.h \
+    ranking/GameRankingList.h \
+    ranking/GameRankingItem.h
 
 FORMS    += GameWindow.ui \
     FatherBlock.ui
