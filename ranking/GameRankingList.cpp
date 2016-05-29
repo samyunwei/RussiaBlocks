@@ -16,7 +16,7 @@ bool GameRankingList::InitWithFile(QString FilePath)
     {
         return false;
     }
-    QFile theFile("output.txt");
+    QFile theFile(FilePath);
     if (theFile.open(QFile::ReadOnly )) {
         QTextStream Read(&theFile);
         GameRankingItem newItem;
@@ -32,13 +32,104 @@ bool GameRankingList::InitWithFile(QString FilePath)
             }
         } while (!theLine.isNull());
         theFile.close();
+        return true;
+    }else
+    {
+        return false;
     }
-    return true;
+    return false;
+}
+
+bool GameRankingList::SaveAsFile(QString FilePath)
+{
+    QFile theFile(FilePath);
+    if(theFile.open(QFile::WriteOnly))
+    {
+        QTextStream WriteStream(&theFile);
+        int count = m_GameRankingItemList.count();
+        for(int i = 0;i<count;i++)
+        {
+            WriteStream<<m_GameRankingItemList[i].GetItemstr()<<"\n";
+        }
+        theFile.close();
+        return true;
+    }else
+    {
+        return false;
+    }
+    return false;
 }
 
 void GameRankingList::SetGameName(QString theGameName)
 {
     m_GameName = theGameName;
+}
+
+int GameRankingList::FindGameRecord(GameRankingItem &theItem)
+{
+    int count = m_GameRankingItemList.count();
+    int res = -1;
+    for(int i = 0;i<count;i++)
+    {
+        if(theItem.GetGameID() == m_GameRankingItemList[i].GetGameID())
+        {
+            res = i;
+            break;
+        }
+    }
+    return res;
+}
+
+bool GameRankingList::AddGameRecord(GameRankingItem theItem)
+{
+    if(FindGameRecord(theItem) == -1)
+    {
+        m_GameRankingItemList.append(theItem);
+        return true;
+    }else
+    {
+        return false;
+    }
+    return false;
+}
+
+bool GameRankingList::AddGameRecord(QString theUserName, int theMark)
+{
+    GameRankingItem newGameRecord(m_GameName,theUserName,theMark);
+    m_GameRankingItemList.append(newGameRecord);
+    return true;
+}
+
+bool GameRankingList::RemoveGameRecord(GameRankingItem theItem)
+{
+    int  theindex = FindGameRecord(theItem);
+    if(theindex != -1)
+    {
+        m_GameRankingItemList.removeAt(theindex);
+        return true;
+    }else
+    {
+        return false;
+    }
+}
+
+bool GameRankingList::UpdateGameRecord(GameRankingItem theItem)
+{
+    int  theindex = FindGameRecord(theItem);
+    if(theindex != -1)
+    {
+        m_GameRankingItemList.replace(theindex,theItem);
+        return true;
+    }else
+    {
+        return false;
+    }
+}
+
+bool GameRankingList::ClearAllGameRecord()
+{
+    m_GameRankingItemList.clear();
+    return true;
 }
 
 QString GameRankingList::GetGameName()

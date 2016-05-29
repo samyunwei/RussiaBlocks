@@ -8,7 +8,7 @@ GameRankingItem::GameRankingItem(QString theGamename, QString theUsername, int t
     m_GameID = theGameID;
     if(theTime == "None")
     {
-        theTime = QDateTime::currentDateTime().toString();
+       m_Time = QDateTime::currentDateTime().toString();
     }else
     {
         m_Time = theTime;
@@ -48,6 +48,7 @@ GameRankingItem::GameRankingItem(const GameRankingItem &theGameRankingItem)
         m_Mark = theGameRankingItem.m_Mark;
         m_GameID = theGameRankingItem.m_GameID;
         m_Time = theGameRankingItem.m_Time;
+        SetSplitstr();
     }
 }
 

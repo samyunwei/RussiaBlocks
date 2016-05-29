@@ -4,7 +4,7 @@
 
 #include "GameWindow.h"
 #include "FatherBlock.h"
-
+#include "GameRankingList.h"
 void SetCodec()
 {
     QTextCodec *codec = QTextCodec::codecForName("UTF-8");
@@ -16,6 +16,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     SetCodec();
+    qDebug()<<QCoreApplication::applicationDirPath();
     //单元测试方框父类
 
 //    FatherBlock testFatherBlock;
@@ -39,5 +40,28 @@ int main(int argc, char *argv[])
     //单元测试游戏窗体
     GameWindow w;
     w.show();
+
+ // TestUnit for Ranking
+//    GameRankingList TestGame;
+    //TestItem
+//    GameRankingItem newItem("testgame","testUser",100);
+//    GameRankingItem newItem2(newItem);
+//    qDebug()<<newItem.GetItemstr()<<"Item1";
+//    qDebug()<<newItem2.GetItemstr()<<"Item2";
+    //TestList
+//    for(int i = 0;i<100;i++)
+//    {
+//        TestGame.AddGameRecord("TestUser",i);
+//    }
+//    qDebug()<<TestGame.SaveAsFile("TestRecord.txt");
+//    TestGame.InitWithFile("TestRecord.txt");
+//    QList<GameRankingItem> theList = TestGame.GetItemsList();
+//    for(int i = 0;i<theList.count();i++)
+//    {
+//        qDebug()<<theList[i].GetItemstr();
+//    }
+
+
+
     return a.exec();
 }

@@ -44,7 +44,11 @@ HEADERS  += GameWindow.h \
 FORMS    += GameWindow.ui \
     FatherBlock.ui
 
+INCLUDEPATH += ranking \
+
+
 DESTDIR = ../bin/
+
 OBJECTS_DIR = ../Builds/BuildRussiaBlocks
 MOC_DIR = ../Builds/BuildRussiaBlocks
 RCC_DIR = ../Builds/BuildRussiaBlocks
