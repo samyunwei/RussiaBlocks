@@ -5,6 +5,7 @@
 #include "GameWindow.h"
 #include "FatherBlock.h"
 #include "GameRankingList.h"
+#include "GameRankForm.h"
 void SetCodec()
 {
     QTextCodec *codec = QTextCodec::codecForName("UTF-8");
@@ -60,6 +61,15 @@ int main(int argc, char *argv[])
 //    {
 //        qDebug()<<theList[i].GetItemstr();
 //    }
+
+ // TestForRankingForm
+//    GameRankForm theTestForm;
+//    for(int i = 0;i<100;i++)
+//    {
+//        theTestForm.AddNewGameRecord("TestUser",i);
+//    }
+//    theTestForm.RefreshRankList();
+//    theTestForm.show();
 
 
 

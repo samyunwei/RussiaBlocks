@@ -1,3 +1,3 @@
 # RussiaBlocks
 
-Design in 64bit Qt.Just Demo, Have fun ^-^
+Design in Linux 64bit Qt.Just Demo, Have fun ^-^

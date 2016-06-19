@@ -24,7 +24,9 @@ SOURCES += main.cpp\
     IBlock.cpp \
     RLBlock.cpp \
     ranking/GameRankingList.cpp \
-    ranking/GameRankingItem.cpp
+    ranking/GameRankingItem.cpp \
+    ranking/GameRankForm.cpp \
+    ranking/GameRecordAddForm.cpp
 
 HEADERS  += GameWindow.h \
     FatherBlock.h \
@@ -39,10 +41,14 @@ HEADERS  += GameWindow.h \
     IBlock.h \
     RLBlock.h \
     ranking/GameRankingList.h \
-    ranking/GameRankingItem.h
+    ranking/GameRankingItem.h \
+    ranking/GameRankForm.h \
+    ranking/GameRecordAddForm.h
 
 FORMS    += GameWindow.ui \
-    FatherBlock.ui
+    FatherBlock.ui \
+    ranking/GameRankForm.ui \
+    ranking/GameRecordAddForm.ui
 
 INCLUDEPATH += ranking \
 
