@@ -415,10 +415,14 @@ void GameWindow::GameOver()
 {
     m_GameThread.quit();
     m_GameThread.SetRunFlag(false);
-    if(QMessageBox::Ok == QMessageBox::information(this,QString("游戏结束"),RussiaBlockController::GetResult(m_AllClearBlocks)))
-    {
-        ReStartGame();
-    }
+    GameRecordAddForm newRecord(RussiaBlockController::GetResult(m_AllClearBlocks));
+    newRecord.setWindowTitle("Game Over!");
+    newRecord.exec();
+    m_GameRankForm.AddNewGameRecord(newRecord.GetUserName(),m_AllClearBlocks);
+    m_GameRankForm.RefreshRankList();
+    m_GameRankForm.setWindowTitle("Ranking");
+    m_GameRankForm.exec();
+     ReStartGame();
 }
 
 void GameWindow::SetRandSeed()
@@ -447,6 +451,7 @@ void GameWindow::ReStartGame()
     }
     m_AllClearBlocks = 0;
     m_GameThread.SetWaitTime(200);
+     ui->label_mark->setText(QString("得分：0"));
 }
 
 int GameWindow::GetRandType()

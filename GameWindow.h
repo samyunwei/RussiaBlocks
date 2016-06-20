@@ -17,7 +17,8 @@
 
 #include "RussiaBlockController.h"
 #include "GameThread.h"
-
+#include "GameRankForm.h"
+#include "GameRecordAddForm.h"
 namespace Ui {
 class GameWindow;
 }
@@ -75,6 +76,7 @@ private:
     QList<QWidget*>m_static_blocks;
     FatherBlock* m_currentFatherBlock;
     GameThread m_GameThread;
+    GameRankForm m_GameRankForm;
     int m_AllClearBlocks;
 };
 

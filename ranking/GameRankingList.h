@@ -25,7 +25,7 @@ public:
     bool ClearAllGameRecord();
 
     QString GetGameName();
-
+    static void SortListbyMark(QList<GameRankingItem> &theList);
     QList<GameRankingItem> GetItemsList();
 signals:
 

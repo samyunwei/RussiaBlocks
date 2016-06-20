@@ -2,12 +2,13 @@
 #include "ui_GameRankForm.h"
 #include <QDebug>
 GameRankForm::GameRankForm(QString theRecodFile ,QString theGameName,QWidget *parent) :
-    QWidget(parent),
+    QDialog(parent),
     ui(new Ui::GameRankForm)
 {
     ui->setupUi(this);
     GuiSetting();
     m_RecordFile = theRecodFile;
+    m_GameRankingList.SetGameName(theGameName);
     m_GameRankingList.InitWithFile(theRecodFile);
     m_GameName = theGameName;
     m_GameRankingList.SetGameName(theGameName);
@@ -22,20 +23,24 @@ void GameRankForm::GuiSetting()
 {
     ui->tableWidget_rank->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableWidget_rank->setFocusPolicy(Qt::NoFocus);
+    ui->tableWidget_rank->verticalHeader()->setHidden(true);
 }
 
-void GameRankForm::RefreshRankList()
+void GameRankForm::RefreshRankList(bool thesortflag)
 {
     QList<GameRankingItem> theList =  m_GameRankingList.GetItemsList();
-
+    if(thesortflag)
+    {
+        GameRankingList::SortListbyMark(theList);
+    }
     ClearTable();
     int count = theList.count();
     for(int i = 0;i<count;i++)
     {
-        ui->tableWidget_rank->insertRow(0);
-        ui->tableWidget_rank->setItem(0,0,new QTableWidgetItem(QString::number(count - i)));
-        ui->tableWidget_rank->setItem(0,1,new QTableWidgetItem(QString(theList[i].GetUsername())));
-        ui->tableWidget_rank->setItem(0,2,new QTableWidgetItem(QString::number(theList[i].GetMark())));
+        ui->tableWidget_rank->insertRow(i);
+        ui->tableWidget_rank->setItem(i,0,new QTableWidgetItem(QString::number(i+1)));
+        ui->tableWidget_rank->setItem(i,1,new QTableWidgetItem(QString(theList[i].GetUsername())));
+        ui->tableWidget_rank->setItem(i,2,new QTableWidgetItem(QString::number(theList[i].GetMark())));
     }
 }
 
@@ -65,4 +70,5 @@ void GameRankForm::ClearTable()
 void GameRankForm::on_pushButton_quit_clicked()
 {
    SaveAsFile();
+   emit this->accept();
 }

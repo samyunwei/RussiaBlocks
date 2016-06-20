@@ -49,24 +49,34 @@ int main(int argc, char *argv[])
 //    GameRankingItem newItem2(newItem);
 //    qDebug()<<newItem.GetItemstr()<<"Item1";
 //    qDebug()<<newItem2.GetItemstr()<<"Item2";
-    //TestList
-//    for(int i = 0;i<100;i++)
+//    TestList
+//    for(int i = 0;i<10;i++)
 //    {
-//        TestGame.AddGameRecord("TestUser",i);
+//        TestGame.AddGameRecord("TestUser",qrand() % 12);
 //    }
 //    qDebug()<<TestGame.SaveAsFile("TestRecord.txt");
-//    TestGame.InitWithFile("TestRecord.txt");
+    //TestGame.InitWithFile("TestRecord.txt");
 //    QList<GameRankingItem> theList = TestGame.GetItemsList();
 //    for(int i = 0;i<theList.count();i++)
 //    {
-//        qDebug()<<theList[i].GetItemstr();
+//        qDebug()<<theList[i].GetMark();
 //    }
 
- // TestForRankingForm
-//    GameRankForm theTestForm;
-//    for(int i = 0;i<100;i++)
+
+//    GameRankingList::SortListbyMark(theList);
+//     qDebug()<<"----------------------------";
+//    for(int i = 0;i<theList.count();i++)
 //    {
-//        theTestForm.AddNewGameRecord("TestUser",i);
+//        qDebug()<<theList[i].GetMark();
+//    }
+
+
+
+  //TestForRankingForm
+//    GameRankForm theTestForm;
+//    for(int i = 0;i<10;i++)
+//    {
+//        theTestForm.AddNewGameRecord("TestUser"+QString::number(i),qrand() % 12);
 //    }
 //    theTestForm.RefreshRankList();
 //    theTestForm.show();

@@ -1,5 +1,5 @@
 #include "GameRankingList.h"
-
+#include <QDebug>
 GameRankingList::GameRankingList(QString theGameName,QObject *parent) : QObject(parent)
 {
     m_GameName = theGameName;
@@ -135,6 +135,32 @@ bool GameRankingList::ClearAllGameRecord()
 QString GameRankingList::GetGameName()
 {
     return m_GameName;
+}
+
+void GameRankingList::SortListbyMark(QList<GameRankingItem> &theList)
+{
+    int count = theList.count();
+    if(count == 0)
+    {
+        return;
+    }
+    int op = 0;
+    while(op < count)
+    {
+        int theMinindex = 0;
+        for(int i = 0;i<count -op;i++)
+        {
+            if(theList[i].GetMark() > theList[theMinindex].GetMark())
+            {
+                theList.swap(i,theMinindex);
+                theMinindex = i;
+            }else
+            {
+                theMinindex = i;
+            }
+        }
+        op++;
+    }
 }
 
 QList<GameRankingItem> GameRankingList::GetItemsList()

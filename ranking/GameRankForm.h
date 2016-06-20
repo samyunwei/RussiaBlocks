@@ -1,7 +1,7 @@
 #ifndef GAMERANKFORM_H
 #define GAMERANKFORM_H
 
-#include <QWidget>
+#include <QDialog>
 
 #include "GameRankingList.h"
 #include "GameRecordAddForm.h"
@@ -9,7 +9,7 @@ namespace Ui {
 class GameRankForm;
 }
 
-class GameRankForm : public QWidget
+class GameRankForm : public QDialog
 {
     Q_OBJECT
 
@@ -19,7 +19,7 @@ public:
 
 
     void GuiSetting();
-    void RefreshRankList();
+    void RefreshRankList(bool thesortflag = true);
     void ShowAddNewMarkFrom();
 
     void AddNewGameRecord(QString theUserName,int theMark);
