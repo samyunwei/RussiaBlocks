@@ -6,7 +6,7 @@ FatherBlock::FatherBlock(QWidget *parent) :
     ui(new Ui::FatherBlock)
 {
     ui->setupUi(this);
-    GeneralGuiSetting();
+    GeneralGuiSetting(parent);
     m_current_status_index = 0;
     m_block_width = 0;
     m_block_height = 0;
@@ -106,13 +106,13 @@ QWidget *FatherBlock::GetSingleBlock(int theBlockType)
     }
 }
 
-void FatherBlock::GeneralGuiSetting()
+void FatherBlock::GeneralGuiSetting(QWidget *parent)
 {
     this->setWindowFlags(Qt::FramelessWindowHint);
     this->setAttribute(Qt::WA_TranslucentBackground,true);
     this->setAutoFillBackground(false);
     this->setAcceptDrops(true);
-    this->setGeometry(this->x(),this->y(),this->width(),this->width());
+    this->setGeometry(this->x()+200,this->y(),this->width(),this->width());
     m_x = this->x();
     m_y = this->y();
     m_width = this->width();

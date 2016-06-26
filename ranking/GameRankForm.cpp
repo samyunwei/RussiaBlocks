@@ -41,6 +41,11 @@ void GameRankForm::RefreshRankList(bool thesortflag)
         ui->tableWidget_rank->setItem(i,0,new QTableWidgetItem(QString::number(i+1)));
         ui->tableWidget_rank->setItem(i,1,new QTableWidgetItem(QString(theList[i].GetUsername())));
         ui->tableWidget_rank->setItem(i,2,new QTableWidgetItem(QString::number(theList[i].GetMark())));
+        if( i < 3)
+        {
+           MarkBests(i);
+        }
+
     }
 }
 
@@ -65,6 +70,13 @@ void GameRankForm::ClearTable()
 {
     ui->tableWidget_rank->clearContents();
     ui->tableWidget_rank->setRowCount(0);
+}
+
+void GameRankForm::MarkBests(int therow)
+{
+     ui->tableWidget_rank->item(therow,0)->setBackgroundColor(QColor(219, 20, 27));
+     ui->tableWidget_rank->item(therow,1)->setBackgroundColor(QColor(219, 20, 27));
+     ui->tableWidget_rank->item(therow,2)->setBackgroundColor(QColor(219, 20, 27));
 }
 
 void GameRankForm::on_pushButton_quit_clicked()

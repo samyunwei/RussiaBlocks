@@ -41,6 +41,7 @@ public:
      void SetRandSeed();
      void ReStartGame();
      int GetRandType();
+     void DefaultInvisiblePutton(void);
 private slots:
     void on_pushButton_Rotate_clicked();
     void on_pushButton_moveUp_clicked();

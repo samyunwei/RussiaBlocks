@@ -10,6 +10,7 @@ GameWindow::GameWindow(QWidget *parent) :
     movepath = 5;
     m_currentFatherBlock = NULL;
     GameWindowGuiSetting(510,700);
+    DefaultInvisiblePutton();
     connect(&m_GameThread,SIGNAL(SignalMoveDown()),this,SLOT(CathchMoveDownGameThread()));
     connect(this,SIGNAL(CurrentClearBlocksSignal(int)),this,SLOT(CurrentClearBlocksSlot(int)));
     m_AllClearBlocks = 0;
@@ -438,7 +439,7 @@ void GameWindow::CurrentClearBlocksSlot(int thecount)
     int tempwaittime = m_GameThread.GetWaitTime();
     if(tempwaittime > 50)
     {
-        m_GameThread.SetWaitTime(tempwaittime - thecount*2);
+        m_GameThread.SetWaitTime(tempwaittime - thecount);
     }
     ui->label_mark->setText(QString("得分：%1").arg(m_AllClearBlocks));
 }
@@ -459,4 +460,13 @@ int GameWindow::GetRandType()
     SetRandSeed();
     int theType =qrand() % 7;
     return theType;
+}
+
+void GameWindow::DefaultInvisiblePutton()
+{
+    ui->pushButton_moveDown->setVisible(false);
+    ui->pushButton_moveLeft->setVisible(false);
+    ui->pushButton_moveRight->setVisible(false);
+    ui->pushButton_moveUp->setVisible(false);
+    ui->pushButton_Rotate->setVisible(false);
 }

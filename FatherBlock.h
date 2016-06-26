@@ -40,7 +40,7 @@ public:
     bool InitBlocksList(int theRow = 4,int theColunm = 4,int theBlockType = 0); //构建样式图形
     QWidget* GetSingleBlock(int theBlockType =0); //获得填充图形
 
-    virtual void GeneralGuiSetting(); //设置图形总体样子
+    virtual void GeneralGuiSetting(QWidget *parent); //设置图形总体样子 default in center
     virtual void SetStatusList(QList<QBitArray> theStatusList); //初始化图形状态表
     virtual bool addStatus(QBitArray theStatus);
 

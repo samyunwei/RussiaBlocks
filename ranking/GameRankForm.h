@@ -26,6 +26,8 @@ public:
     void SaveAsFile();
 
     void ClearTable();
+
+    void MarkBests(int therow);
 private slots:
     void on_pushButton_quit_clicked();
 

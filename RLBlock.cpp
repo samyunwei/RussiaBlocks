@@ -35,7 +35,7 @@ void RLBlock::SetShape()
     QBitArray newstatus3(16);
     newstatus3.setBit(0,true);
     newstatus3.setBit(1,true);
-    newstatus3.setBit(5,true);
-    newstatus3.setBit(9,true);
+    newstatus3.setBit(2,true);
+    newstatus3.setBit(6,true);
     this->addStatus(newstatus3);
 }

@@ -8,6 +8,7 @@ GameRecordAddForm::GameRecordAddForm(QString theLabelString,QWidget *parent) :
     ui->setupUi(this);
     m_LabelString = theLabelString;
     ui->label_Score->setText(m_LabelString);
+    GuiSetting();
 }
 
 GameRecordAddForm::~GameRecordAddForm()
@@ -24,6 +25,7 @@ QString GameRecordAddForm::GetUserName()
 {
     return ui->lineEdit_UserName->text();
 }
+
 
 void GameRecordAddForm::on_pushButton_OK_clicked()
 {
